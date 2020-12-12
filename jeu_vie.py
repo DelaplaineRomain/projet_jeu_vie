@@ -26,7 +26,7 @@ while generation < generation_max :
     for i,cell in enumerate(grid_0):
         rep = lib.fSurvive(grid_0,cell,grid_width,grid_height)
         liste.append(rep)
-    for i,val in enumerate(liste)
+    for i,val in enumerate(liste):
         if rep :
             grid[i].change_state()
     generation += 1
