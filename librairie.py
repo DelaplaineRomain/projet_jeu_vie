@@ -29,12 +29,23 @@ class Cell:
     def get_num(self):
         return self.num
 
+    def __str__ (self):
+        return str(self.state)
+
 #fonction qui redimensionne une grille
 ''' en parametre les dimensions et en sortie la grille qui est une liste de cellule '''
 def fSet_grid(pWidth,pHeight):
     grille = []
     for i in range(1,pWidth*pHeight+1):
         grille.append(Cell(i))
+    return grille
+
+def fMatrix_grid (pGrid,pWidth,pHeight):
+    rep = pGrid        #rep est la liste contenant toute les cellules dans l'ordre
+    grille = []     #grille est la liste de liste correspondant  notre grille
+    for i in range(1,pHeight+1):
+        grille.append(rep[:pWidth])
+        rep = rep[pWidth:]
     return grille
 
 #fonction qui nous dit si une cellule meurt ou vit au prochain tour
@@ -64,6 +75,7 @@ def fSurvive(pGrid,pCell,pWidth,pHeight):
         environment = [cell_num-1,cell_num+1,cell_num-pWidth-1,cell_num-pWidth,cell_num-pWidth+1]
     else :
         environment = [cell_num-1,cell_num+1,cell_num-pWidth-1,cell_num-pWidth,cell_num-pWidth+1,cell_num+pWidth-1,cell_num+pWidth,cell_num+pWidth+1]
+    """rep renvoie true si la cellule doit changer d'etat et false sinn"""
     rep = False
     ''' res est le nombre de cellule vivante autour de la cellule courante '''
     res = 0
@@ -98,3 +110,17 @@ def fAffichage_console(pListe,pWidth,pHeight):
     for i in range(1,pHeight+1):
         print(test[:pWidth])
         test = test[pWidth:]
+
+#fonction permetant un affichage comprehensible sur console
+''' en parametre la grille et ses dimensions et en sortie rien juste l'affichage de la grille '''
+def fAffichage_console_V2(pListe):
+    for val in pListe:
+        print (val)
+
+#fonction pour verifier la saisie
+''' en parametre la saisie et en sortie true ou false '''
+def fValidite_saisie (pEntre):
+    rep = False
+    if pEntre.isdigit() :
+        rep =  True
+    return rep
