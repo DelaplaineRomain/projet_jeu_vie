@@ -1,0 +1,63 @@
+jeu de la vie
+
+jeu sur une grille 2d ou une cellule possede deux etats vivante ou morte :
+    une cellule morte devient vivante si elle a exactement 3 cellule vivante autour d'elle.
+    une cellule vivante possédant deux ou trois voisines vivantes le reste, sinon elle meurt.
+
+-ouvrir une fenetre TKinter
+    -Bouton lancer
+        fonction pr lancer la simulation
+
+    -Bouton arreter
+        fonction pour arreter la simulation
+
+    "-Champ pour selectionenr le nombre de generation"
+
+    -Champ d'entrer pour redimensionner la grille
+
+    -Champ pour selectionner des configurations de base
+        fonction qui récupère des config de bases 
+    
+    -Champ pour selectionner la vitesse de la simulation
+
+    -Champ qui affiche la génération en temps reel
+
+-afficher la grille
+    -la grille de depart 10*10
+    -fonction pr modifier la taille de la grille
+
+-generer une configuration de depart
+    -manuellement
+    -automatiquement
+
+-fonction qui creer une cellule morte
+    param: cellule en question
+
+-fonction qui creer une cellule vivante
+    param: cellule en question
+
+-fonction qui nous dit si une cellule vit ou meurt
+    param: cellule en question
+
+Programme principal :
+
+lorsqu'on lance la simulation :
+    les generations se succede jusqu'a qu'on atteint la derniere generation ou quon arrete la simulation
+        On regarde l'etat de chaque case
+            On regarde autour de la case l'environement
+                si l'environement est bien
+                    la cellule vie
+                sinn 
+                    la cellule meurt
+
+Gestion de variable :
+
+programation objet
+    -une case est un objet de la classe cellule
+    classe cellule
+        etat
+    -l'etat est soit 0(morte) soit 1(vivante)
+    -la grille est une liste de case
+
+
+
