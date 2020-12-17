@@ -63,7 +63,9 @@ def fModif_couleur ():
             fChange_color_cell_alive("cell_"+str(val.get_num()))
 
 def fGenerate ():
+    global compteur
     global grid     
+    compteur = 0
     grid = lib.fRandom_grid(grid)           #grid est une liste de cellule d'etat 1 ou 0
     for val in grid :
         state = val.get_state()
@@ -74,6 +76,8 @@ def fGenerate ():
 
 def fGenerate_by_user (event, pTag):
     global grid
+    global compteur
+    compteur = 0
     state = canevas.itemcget(pTag,'fill')
     indice = int(pTag.split("_")[1])-1
     if state == 'black' :
@@ -86,6 +90,7 @@ def fGenerate_by_user (event, pTag):
 def fAnnimation ():
     global grid
     global run
+    global compteur
     grid_0 = grid
     liste = []      # liste de true ou false pr les modif sur la generation suivante
     for val in grid_0 :
@@ -94,7 +99,9 @@ def fAnnimation ():
     for i,val in enumerate(liste):
         if val :
             grid[i].change_state()
-    fModif_couleur()                        
+    fModif_couleur()
+    compteur += 1
+    info.set("Compteur : "+str(compteur))
     if not run :
         mywindow.after(int(vitesse.get()),fAnnimation)
 
